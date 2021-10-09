@@ -13,6 +13,7 @@ interface Options {
     s3: AWS.S3;
     bucket: ((req: Express.Request, file: Express.Multer.File, callback: (error: any, bucket?: string) => void) => void) | string;
     key?(req: Express.Request, file: Express.Multer.File, callback: (error: any, key?: string) => void): void;
+    options?(req: Express.Request, file: Express.Multer.File, callback: (error: any, options?: any) => void): void;
     acl?: ((req: Express.Request, file: Express.Multer.File, callback: (error: any, acl?: string) => void) => void) | string | undefined;
     contentType?(req: Express.Request, file: Express.Multer.File, callback: (error: any, mime?: string, stream?: NodeJS.ReadableStream) => void): void;
     contentDisposition?: ((req: Express.Request, file: Express.Multer.File, callback: (error: any, contentDisposition?: string) => void) => void) | string | undefined;
